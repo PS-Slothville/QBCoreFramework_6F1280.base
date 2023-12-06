@@ -3,11 +3,11 @@
       "host": "localhost",
       "user": "root",
       "password": "",
-      "database": "databasename"
+      "database": "slothville"
     },
     "discordwebhook": {
       "enable": true,
-      "webhook": "webhookurl",
+      "webhook": "https://discord.com/api/webhooks/1181905021890220093/4w6AJLOykSUMzLmBCJ1mBHxsIV9BuKickWk6rnBkreZccprbFb9eGB66SJ97Uzed-no3",
       "color": "#000000",
       "footer": "Flight Backup"
     },

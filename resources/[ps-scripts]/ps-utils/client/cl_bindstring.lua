@@ -1,14 +1,93 @@
 -- https://gist.github.com/DemmyDemon/69d53b78b005a7c1a6fdb9036e401f4c
+--[[
+    ↑ <kbd>&uarr;</kbd>
+    ↓ <kbd>&darr;</kbd>
+    ← <kbd>&larr;</kbd>
+    → <kbd>&rarr;</kbd>
+
+    Ⓐ &#x24B6;
+    Ⓑ &#x24B7;
+    Ⓒ &#x24B8;
+    Ⓛ &#x24C1;
+    Ⓞ &#x24C4;
+    Ⓡ &#x24C7;
+    Ⓤ &#x24CA;
+    Ⓧ &#x24CD;
+    Ⓨ &#x24CE;
+    Ⓩ &#x24CF;
+    ⓐ &#x24D0;
+    ⓑ &#x24D1;
+    ⓒ &#x24D2;
+    ⓧ &#x24E7;
+    ⓨ &#x24E8;
+    ⓩ &#x24E9;
+    △ &#x25B3;
+    ○ &#x25CB;
+    ✕ &#x2715;
+    □ &#x25A1;
+    ① &#x2460;
+    ② &#x2461;
+    ◉ &#x25C9;
+
+    L <kbd>L</kbd>
+    R <kbd>R</kbd>
+    L1 <kbd>L1</kbd>
+    L2 <kbd>L2</kbd>
+    R1 <kbd>R1</kbd>
+    R2 <kbd>R2</kbd>
+    + <kbd>+</kbd>
+    - <kbd>-</kbd>
+    home <kbd>home</kbd>
+    options <kbd>options</kbd>
+    select <kbd>select</kbd>
+    share <kbd>share</kbd>
+    start <kbd>start</kbd>
+]]
+
+local myControl = "xbox"
+
+RegisterCommand("setcontroller", function(s,a)
+    if allowed_controllers[a[1]] then
+        myControl = a[1]
+    else 
+        print("'xbox' or 'ps' only work pls")
+    end
+end)
+
+local allowed_controllers = {
+    ["xbox"] = {
+        b_30 = "Ⓐ",
+        b_31 = "Ⓑ",
+        b_32 = "Ⓧ",
+        b_33 = "Ⓨ",
+        b_34 = "LB",
+        b_35 = "LT",
+        b_36 = "RB",
+        b_37 = "RT",
+    },
+    ["ps"] = {
+        b_30 = "✕",
+        b_31 = "○",
+        b_32 = "□",
+        b_33 = "△",
+        b_34 = "L1",
+        b_35 = "L2",
+        b_36 = "R1",
+        b_37 = "R2",
+    },
+}
+
+
 local BINDSTRING = {
-    --[[ TODO: All the controller stuff
+    -- [[ TODO: All the controller stuff
     b_0 = '',
     b_1 = '',
     b_2 = '',
     b_3 = '',
-    b_4 = '',
-    b_5 = '',
-    b_6 = '',
-    b_7 = '',
+    b_4 = '↑',
+    b_5 = '↓',
+    b_6 = '←',
+    b_7 = '→',
     b_8 = '',
     b_9 = '',
     b_10 = '',
@@ -20,27 +99,27 @@ local BINDSTRING = {
     b_16 = '',
     b_17 = '',
     b_18 = '',
-    b_19 = '',
+    b_19 = 'L◉', -- 'LEFT ANALOG STICK IN',
     b_20 = '',
     b_21 = '',
     b_22 = '',
     b_23 = '',
     b_24 = '',
-    b_25 = '',
+    b_25 = 'R◉', -- 'RIGHT ANALOG STICK IN',
     b_26 = '',
     b_27 = '',
     b_28 = '',
     b_29 = '',
-    b_30 = '',
-    b_31 = '',
-    b_32 = '',
-    b_33 = '',
-    b_34 = '',
-    b_35 = '',
-    b_36 = '',
-    b_37 = '',
-    b_38 = '',
-    b_39 = '',
+    b_30 = allowed_controllers[myControl].b_30,
+    b_31 = allowed_controllers[myControl].b_31,
+    b_32 = allowed_controllers[myControl].b_32,
+    b_33 = allowed_controllers[myControl].b_33,
+    b_34 = allowed_controllers[myControl].b_34,
+    b_35 = allowed_controllers[myControl].b_35,
+    b_36 = allowed_controllers[myControl].b_36,
+    b_37 = allowed_controllers[myControl].b_37,
+    b_38 = '①', -- 'PAUSE BUTTON',
+    b_39 = '②', -- 'SHARE BUTTON',
     b_40 = '',
     b_41 = '',
     b_42 = '',
@@ -49,7 +128,7 @@ local BINDSTRING = {
     b_45 = '',
     b_46 = '',
     b_47 = '',
-    ]]
+    --]]
     b_100 = 'Mouse 1',
     b_101 = 'Mouse 2',
     b_102 = 'Mouse 3',

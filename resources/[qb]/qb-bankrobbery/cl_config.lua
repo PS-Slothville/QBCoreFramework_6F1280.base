@@ -20,7 +20,7 @@ end
 --- @param bank number | string
 --- @return nil
 function Config.OnHackDone(success, bank)
-    TriggerEvent('mhacking:hide')
+    -- TriggerEvent('mhacking:hide')
     if not success then return end
     TriggerServerEvent('qb-bankrobbery:server:setBankState', bank)
 end

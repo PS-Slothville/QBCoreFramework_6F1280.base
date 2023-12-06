@@ -393,7 +393,7 @@ RegisterNetEvent('police:client:TakeOutVehicle', function(data)
     end
 end)
 
-RegisterNetEvent('police:client:EvidenceStashDrawer', function()
+RegisterNetEvent('qb-policejob:client:EvidenceStashDrawer', function()
     local pos = GetEntityCoords(PlayerPedId())
     local currentEvidence = 0
     for k, v in pairs(Config.Locations['evidence']) do

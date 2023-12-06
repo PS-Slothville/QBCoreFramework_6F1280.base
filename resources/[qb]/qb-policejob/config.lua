@@ -1,11 +1,11 @@
 Config = {}
-Config.UseTarget = GetConvar('UseTarget', 'false') == 'true'
+Config.UseTarget = true --GetConvar('UseTarget', 'false') == 'true'
 Config.MaxSpikes = 5
 Config.HandCuffItem = 'handcuffs'
 Config.LicenseRank = 2
 Config.ArmoryWhitelist = {}
 Config.WhitelistedVehicles = {}
-Config.PoliceHelicopter = 'POLMAV'
+Config.PoliceHelicopter = 'maverick2'
 Config.FuelResource = 'LegacyFuel' -- supports any that has a GetFuel() and SetFuel() export
 
 Config.AmmoLabels = {
@@ -27,19 +27,24 @@ Config.Objects = {
 
 Config.Locations = {
     ['duty'] = {
-        [1] = vector3(440.085, -974.924, 30.689),
+        -- MRPD
+        [1] = vector3(441.7809, -982.0448, 30.8367),
+        -- OTHER
         [2] = vector3(-449.811, 6012.909, 31.815),
     },
     ['vehicle'] = {
-        [1] = vector4(448.159, -1017.41, 28.562, 90.654),
-        [2] = vector4(471.13, -1024.05, 28.17, 274.5),
-        [3] = vector4(-455.39, 6002.02, 31.34, 87.93),
+        -- [1] = vector4(448.159, -1017.41, 28.562, 90.654),
+        -- [2] = vector4(471.13, -1024.05, 28.17, 274.5),
+        -- [3] = vector4(-455.39, 6002.02, 31.34, 87.93),
     },
     ['stash'] = {
-        [1] = vector3(453.075, -980.124, 30.889),
+        -- MRPD
+        [1] = vector3(462.0417, -1000.4448, 30.8453),
     },
     ['impound'] = {
-        [1] = vector3(436.68, -1007.42, 27.32),
+        -- MRPD
+        [1] = vector3(442.2644, -1015.6179, 28.6629),
+        -- OTHER
         [2] = vector3(-436.14, 5982.63, 31.34),
     },
     ['helicopter'] = {
@@ -47,16 +52,21 @@ Config.Locations = {
         [2] = vector4(-475.43, 5988.353, 31.716, 31.34),
     },
     ['armory'] = {
-        [1] = vector3(462.23, -981.12, 30.68),
+        -- MRPD
+        [1] = vector3(482.5699, -994.5635, 30.7745),
     },
     ['trash'] = {
-        [1] = vector3(439.0907, -976.746, 30.776),
+        -- MRPD
+        [1] = vector3(442.523, -983.1128, 30.0795),
     },
     ['fingerprint'] = {
-        [1] = vector3(460.9667, -989.180, 24.92),
+        -- MRPD
+        [1] = vector3(473.6212, -1014.0361, 26.1933),
     },
     ['evidence'] = {
-        [1] = vector3(442.1722, -996.067, 30.689),
+        -- MRPD
+        [1] = vector3(473.7698, -990.7543, 26.1801),
+        -- OTHER
         [2] = vector3(451.7031, -973.232, 30.689),
         [3] = vector3(455.1456, -985.462, 30.689),
     },

@@ -11,7 +11,7 @@ Config.Cost = 200
 
 Config.UseInteractionPoint = true -- set this to false if you don't want to use the stock locations
 Config.InteractionPoints = {
-    vector3(308.12, -562.91, 43.39),
+    vector3(308.4667, -595.9698, 43.37)
 }
 
 -- Setup for spawning printers

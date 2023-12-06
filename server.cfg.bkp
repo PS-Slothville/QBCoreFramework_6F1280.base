@@ -1,0 +1,102 @@
+                                                                                                                                                       
+                                                                                                                                                       
+#    SSSSSSSSSSSSSSS lllllll                           tttt         hhhhhhh                                    iiii  lllllll lllllll                     
+#  SS:::::::::::::::Sl:::::l                        ttt:::t         h:::::h                                   i::::i l:::::l l:::::l                     
+# S:::::SSSSSS::::::Sl:::::l                        t:::::t         h:::::h                                    iiii  l:::::l l:::::l                     
+# S:::::S     SSSSSSSl:::::l                        t:::::t         h:::::h                                          l:::::l l:::::l                     
+# S:::::S             l::::l    ooooooooooo   ttttttt:::::ttttttt    h::::h hhhhh   vvvvvvv           vvvvvvviiiiiii  l::::l  l::::l     eeeeeeeeeeee    
+# S:::::S             l::::l  oo:::::::::::oo t:::::::::::::::::t    h::::hh:::::hhh v:::::v         v:::::v i:::::i  l::::l  l::::l   ee::::::::::::ee  
+#  S::::SSSS          l::::l o:::::::::::::::ot:::::::::::::::::t    h::::::::::::::hhv:::::v       v:::::v   i::::i  l::::l  l::::l  e::::::eeeee:::::ee
+#   SS::::::SSSSS     l::::l o:::::ooooo:::::otttttt:::::::tttttt    h:::::::hhh::::::hv:::::v     v:::::v    i::::i  l::::l  l::::l e::::::e     e:::::e
+#     SSS::::::::SS   l::::l o::::o     o::::o      t:::::t          h::::::h   h::::::hv:::::v   v:::::v     i::::i  l::::l  l::::l e:::::::eeeee::::::e
+#        SSSSSS::::S  l::::l o::::o     o::::o      t:::::t          h:::::h     h:::::h v:::::v v:::::v      i::::i  l::::l  l::::l e:::::::::::::::::e 
+#             S:::::S l::::l o::::o     o::::o      t:::::t          h:::::h     h:::::h  v:::::v:::::v       i::::i  l::::l  l::::l e::::::eeeeeeeeeee  
+#             S:::::S l::::l o::::o     o::::o      t:::::t    tttttth:::::h     h:::::h   v:::::::::v        i::::i  l::::l  l::::l e:::::::e           
+# SSSSSSS     S:::::Sl::::::lo:::::ooooo:::::o      t::::::tttt:::::th:::::h     h:::::h    v:::::::v        i::::::il::::::ll::::::le::::::::e          
+# S::::::SSSSSS:::::Sl::::::lo:::::::::::::::o      tt::::::::::::::th:::::h     h:::::h     v:::::v         i::::::il::::::ll::::::l e::::::::eeeeeeee  
+# S:::::::::::::::SS l::::::l oo:::::::::::oo         tt:::::::::::tth:::::h     h:::::h      v:::v          i::::::il::::::ll::::::l  ee:::::::::::::e  
+#  SSSSSSSSSSSSSSS   llllllll   ooooooooooo             ttttttttttt  hhhhhhh     hhhhhhh       vvv           iiiiiiiillllllllllllllll    eeeeeeeeeeeeee  
+                                                                                                                           
+## You CAN edit the following:
+endpoint_add_tcp "0.0.0.0:30120"
+endpoint_add_udp "0.0.0.0:30120"
+sv_maxclients 4
+sv_enforceGameBuild 2944 #mp2023_01 - San Andreas Mercenaries
+sets tags "Project Sloth, Slothville"
+
+## Discord
+set ps:discordDebug "true"
+set ps:discordAPIVersion 10
+set ps:discordGuildId "1180765102987817051"
+set ps:discordBotToken "MTE4MTU2MjEzMzQ4MjMxOTg5Mg.G6RfuS.riWbZr93w5MWhrCOnKKgCOqVqtkUQ8Rh_brvR0"
+set ps:discordRequestsPerMinute 30
+set ps:displayQueueInHostname 1
+set ps:gracePeriod 120
+set ps:ghostCheckInterval 60
+set ps:webhookStatusMessage "https://discord.com/api/webhooks/1181561282567094272/pvLVBvk4EPf8_Ow_NzNKwA6Rpj0RFoKXm3s20L6k_YHGbwtaGspoEsFjL9k78JnaPKOD"
+set ps:webhookStatusUpdateInterval 30
+
+## Keys
+set steam_webApiKey "none"
+sv_licenseKey "ld1yatiw6de2sbnrtqpogy5uu2f7lfiz"
+
+## You MAY edit the following:
+sv_hostname "Slothville Dev Environment"
+sets sv_projectName "Project Sloth 3.0"
+sets sv_projectDesc "maybe this is fake who knows"
+sets locale "en-US"
+load_server_icon myLogo.png
+set mysql_connection_string "mysql://root@localhost/Slothville?charset=utf8mb4"
+
+# Voice config
+setr voice_useNativeAudio true
+setr voice_useSendingRangeOnly true
+setr voice_defaultCycle "GRAVE"
+setr voice_defaultVolume 0.3
+setr voice_enableRadioAnim 1
+setr voice_syncData 1
+
+# QBCore locale config
+setr qb_locale "en"
+
+# QBCore UseTarget
+setr UseTarget false
+
+# These resources will start by default.
+ensure mapmanager
+ensure chat
+ensure spawnmanager
+ensure sessionmanager
+ensure basic-gamemode
+ensure hardcap
+ensure baseevents
+
+# QBCore & Extra stuff
+ensure qb-core
+ensure [qb]
+ensure [standalone]
+ensure [voice]
+ensure [defaultmaps]
+
+## ASSETS
+ensure [slothville]
+
+
+## Permissions ##
+add_ace group.admin command allow # allow all commands
+add_principal identifier.fivem:1078858 group.admin #J_ayy
+add_principal identifier.discord:465687734959210496 group.admin #J_ayy
+
+
+# Resources
+add_ace resource.qb-core command allow # Allow qb-core to execute commands
+
+# Gods
+add_ace qbcore.god command allow # Allow all commands
+
+add_principal group.admin qbcore.god # Allow gods access to the main admin group 
+
+# Inheritance
+add_principal qbcore.god group.admin # Allow gods access to the main admin group used to get all default permissions
+add_principal qbcore.god qbcore.admin # Allow gods access to admin commands
+add_principal qbcore.admin qbcore.mod # Allow admins access to mod commands

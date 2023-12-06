@@ -1,0 +1,9 @@
+--Name: test | 2023-12-06T06:03:29Z
+BoxZone:Create(vector3(463.02, -1017.18, 27.42), 9.0, 7, {
+  name="test",
+  heading=0,
+  --debugPoly=true,
+  minZ=26.42,
+  maxZ=30.42
+})
+

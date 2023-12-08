@@ -3,14 +3,14 @@ Config = {
     --- Misc
     UseCommand = false, --(Only Authrised for perm admin+)
     Command = "Hurricane",
-    Weather_For_Hurricane = "Thunder",
-    Weather_For_Blizzard = "Blizzard",
+    Weather_For_Hurricane = "THUNDER",
+    Weather_For_Blizzard = "BLIZZARD",
     Weather_For_Blizzard2 = "XMAS",
-    CreateMoreLightning = false, -- More thunder and lighting
+    CreateMoreLightning = true, -- More thunder and lighting
     PS_Dispatch = true, -- True if use PS_Dispatch
     --- Air Vehicles Effected By Weather 
     ThunderAir = true,
-    VehicleAreDestoryed = false,
+    VehicleAreDestoryed = true,
     Plane_Notification = "Your Engine is struggling againts the high winds!",
     Heli_Notification = "You Notice That Your Helicopter is Struggling Against The High Winds!",
     SnowAir = true,

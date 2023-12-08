@@ -1,0 +1,64 @@
+#statusHud {
+    width: 275px;
+    position: absolute;
+    bottom: 0.25%;
+    left: 0.8%;
+
+    background-color: #1B6CE6;
+}
+
+.hidden {
+    display: none;
+}
+
+svg {
+    width: 53;
+    height: 53;
+}
+
+.voice {
+	position: absolute;
+
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+    gap: 5px;
+    grid-auto-rows: 100px;
+    grid-template-areas:
+      "a b c";
+    align-items: start;
+
+	right: 1vh;
+	top: 5vh;
+}
+
+  
+  .voice1 {
+    grid-area: a;
+  }
+  .voice2 {
+    grid-area: b;
+  }
+  .voice3 {
+    grid-area: c;
+  }
+
+.voice > div {
+    width: 10px;
+    height: 10px;
+    border: 2px solid #000000;
+    background: #444040;
+    /* background-color: rgba(0,0,0,0.4); */
+    margin-bottom: 2px;
+    border-radius: 4px;
+}
+
+.talking > div {
+    border: 2px solid rgb(0, 162, 255);
+    background: rgb(162, 224, 253);
+    border: 2px solid #000000;
+}
+
+.transmitting > div {
+    background: rgb(255, 127, 127) !important;
+    border: 2px solid #000000;
+}

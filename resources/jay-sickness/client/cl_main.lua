@@ -25,8 +25,7 @@ local function GetSick()
             TaskPlayAnim(ped, "timetable@gardener@smoking_joint", "idle_cough", 8.0, 8.0, -1, 50, 0, false, false, false)
             Wait(3000)
             ClearPedSecondaryTask(ped)
-            local health = GetEntityHealth(ped)
-            SicknessLevel = SicknessLevel + math.random(1,10)/10
+            SicknessLevel = SicknessLevel + math.random(1,2)
             TriggerEvent('hud:client:BuffEffect', {
                 buffName = "sickness",
                 display = true,
@@ -35,8 +34,10 @@ local function GetSick()
                 progressColor = "#9FB710",
                 progressValue = SicknessLevel,
             })
+            local health = GetEntityHealth(PlayerPedId())
             local damage = math.random(1,10)+SicknessLevel
-            SetEntityHealth(ped, health-damage)
+            -- print(health-damage)
+            SetEntityHealth(PlayerPedId(), health-damage)
         until not Sick
     end)
 end

@@ -1,6 +1,10 @@
 local QBCore = exports['qb-core']:GetCoreObject()
 
+local chance = 6
+
 local Sick = false
+
+local SicknessLevel = 0
 
 local function GetSick()
     if Sick then 
@@ -22,7 +26,17 @@ local function GetSick()
             Wait(3000)
             ClearPedSecondaryTask(ped)
             local health = GetEntityHealth(ped)
-            SetEntityHealth(ped, health-1)
+            SicknessLevel = SicknessLevel + math.random(1,10)/10
+            TriggerEvent('hud:client:BuffEffect', {
+                buffName = "sickness",
+                display = true,
+                iconName = "atom",
+                iconColor = "#9FB710",
+                progressColor = "#9FB710",
+                progressValue = SicknessLevel,
+            })
+            local damage = math.random(1,10)+SicknessLevel
+            SetEntityHealth(ped, health-damage)
         until not Sick
     end)
 end
@@ -31,6 +45,11 @@ RegisterNetEvent("sickness:GetSick", GetSick)
 
 local function NoSick()
     Sick = false
+    SicknessLevel = 0
+    TriggerEvent('hud:client:BuffEffect', {
+        display = false,
+        buffName = "sickness",
+    })
 end
 RegisterNetEvent("sickness:NoSick", NoSick)
 exports('NoSick',NoSick)
@@ -39,7 +58,7 @@ CreateThread(function()
     while true do
         Wait(60000)
         local chanceill = math.random(1, 100)
-        if chanceill <= chance then
+        if chanceill <= Config.Chance then
             GetSick()
         end
     end

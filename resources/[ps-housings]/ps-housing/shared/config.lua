@@ -69,17 +69,17 @@ Config.StartingApartment = true
 Config.ShowCustomizerWhenNoStartingApartment = true
 
 Config.Apartments = {
-    ["Integrity Way"] = {
-        label = "Integrity Way",
-        door = { x = 269.73, y = -640.75, z = 42.02, h = 249.07, length = 1, width = 2 },
-        imgs = {
-            {
-                url = "https://cdn.discordapp.com/attachments/1143566042153631784/1143566754983972954/986BKLz.jpg",
-                label = "Outside",
-            },
-        },
-        shell = "Apartment Furnished",
-    },
+    -- ["Integrity Way"] = {
+    --     label = "Integrity Way",
+    --     door = { x = 269.73, y = -640.75, z = 42.02, h = 249.07, length = 1, width = 2 },
+    --     imgs = {
+    --         {
+    --             url = "https://cdn.discordapp.com/attachments/1143566042153631784/1143566754983972954/986BKLz.jpg",
+    --             label = "Outside",
+    --         },
+    --     },
+    --     shell = "Apartment Furnished",
+    -- },
     
     ["South Rockford Drive"] = {
         label = "South Rockford Drive",
@@ -90,44 +90,44 @@ Config.Apartments = {
                 label = "Outside",
             },
         },
-        shell = "Apartment Furnished",
+        shell = "Standard Motel",
     },
 
-    ['Morningwood Blvd'] = {
-        label = 'Morningwood Blvd',
-        door = { x = -1288.52, y = -430.51, z = 35.15, h = 124.81, length = 1, width = 2 },
-        imgs = {
-            {
-                url = "https://cdn.discordapp.com/attachments/1143566042153631784/1143566730363412582/amZDmz7.jpg",
-                label = "Outside",
-            },
-        },
-        shell = "Apartment Furnished",
-    },
+    -- ['Morningwood Blvd'] = {
+    --     label = 'Morningwood Blvd',
+    --     door = { x = -1288.52, y = -430.51, z = 35.15, h = 124.81, length = 1, width = 2 },
+    --     imgs = {
+    --         {
+    --             url = "https://cdn.discordapp.com/attachments/1143566042153631784/1143566730363412582/amZDmz7.jpg",
+    --             label = "Outside",
+    --         },
+    --     },
+    --     shell = "Apartment Furnished",
+    -- },
 
-    ['Tinsel Towers'] = {
-        label = 'Tinsel Towers',
-        door = { x = -619.29, y = 37.69, z = 43.59, h = 181.03, length = 1, width = 2 },
-        imgs = {
-            {
-                url = "https://cdn.discordapp.com/attachments/1108364246342963322/1140163262315495494/tinsel.webp",
-                label = "Outside",
-            },
-        },
-        shell = "Apartment Furnished",
-    },
+    -- ['Tinsel Towers'] = {
+    --     label = 'Tinsel Towers',
+    --     door = { x = -619.29, y = 37.69, z = 43.59, h = 181.03, length = 1, width = 2 },
+    --     imgs = {
+    --         {
+    --             url = "https://cdn.discordapp.com/attachments/1108364246342963322/1140163262315495494/tinsel.webp",
+    --             label = "Outside",
+    --         },
+    --     },
+    --     shell = "Apartment Furnished",
+    -- },
 
-    ['Fantastic Plaza'] = {
-        label = 'Fantastic Plaza',
-        door = { x = 291.517, y = -1078.674, z = 29.405, h = 270.75, length = 1, width = 2 },
-        imgs = {
-            {
-                url = "https://cdn.discordapp.com/attachments/1143566042153631784/1143566742589800629/SgK60IR.jpg",
-                label = "Outside",
-            },
-        },
-        shell = "Apartment Furnished",
-    }
+    -- ['Fantastic Plaza'] = {
+    --     label = 'Fantastic Plaza',
+    --     door = { x = 291.517, y = -1078.674, z = 29.405, h = 270.75, length = 1, width = 2 },
+    --     imgs = {
+    --         {
+    --             url = "https://cdn.discordapp.com/attachments/1143566042153631784/1143566742589800629/SgK60IR.jpg",
+    --             label = "Outside",
+    --         },
+    --     },
+    --     shell = "Apartment Furnished",
+    -- }
 }
 
 -- Shells provided by K4MB1 https://www.k4mb1maps.com/

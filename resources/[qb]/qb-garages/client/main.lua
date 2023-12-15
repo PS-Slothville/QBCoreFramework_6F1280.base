@@ -328,7 +328,7 @@ local function CreateHouseZone(index, garage, zoneType)
         houseGarageZones[#houseGarageZones + 1] = houseZone
 
         if not houseComboZones then
-            houseComboZones = ComboZone:Create(houseGarageZones, { name = 'houseComboZones', debugPoly = true })
+            houseComboZones = ComboZone:Create(houseGarageZones, { name = 'houseComboZones', debugPoly = false })
         else
             houseComboZones:AddZone(houseZone)
         end

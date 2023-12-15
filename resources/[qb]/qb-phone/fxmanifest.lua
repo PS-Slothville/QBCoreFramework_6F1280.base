@@ -8,7 +8,7 @@ ui_page 'html/index.html'
 
 shared_scripts {
     'config.lua',
-    '@qb-apartments/config.lua'
+    -- '@qb-apartments/config.lua'
 }
 
 client_scripts {

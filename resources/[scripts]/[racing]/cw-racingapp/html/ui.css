@@ -3,21 +3,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@600&display=swap');
 
 :root {
-    --primary-color: #02f1b5;
+    --primary-color: #BEDA17;
 	--primary-color-light: #ffa303;
 	--primary-color-dark: #c30000;
     --secondary-color: #90aeff;
-	--secondary-color-light: #5d7fcb;
+    --secondary-color-light: #5d7fcb;
 	--secondary-color-dark: #c4e0ff;
 	--positive-color: #66bb6a;
 	--negative-color:  #c62828;
-	--background-color: #131121;
-    --background-color-even-lighter: #454553;
-	--background-color-dark: #1d1d24;
+    --background-color: #000000;
+    --background-color-even-lighter: #9FB710;
+    --background-color-dark: #9FB710;
 	--background-color-inv: #ffffff;
-	--background-color-inv-dark: #f3f3f3;
-    --background-color-topbar: #222033;
-    --background-color-sidebar: #222033;
+    --background-color-inv-dark: #f3f3f3;
+    --background-color-topbar: #000000;
+    --background-color-sidebar: #000000;
     --background:
     linear-gradient(135deg, #c01d2e 0%, #a31f2c 100%);
     --shadow:

@@ -20,17 +20,19 @@
     --primary-color: #ff4603 ;
 	--primary-color-light: #ffa303;
 	--primary-color-dark: #c30000;
-    --primary: linear-gradient(131deg, var(--primary-color) 0%, var(--primary-color-light) 100%);
+    --primary:
+    linear-gradient(131deg, var(--primary-color) 0%, var(--primary-color-light) 100%);
     --secondary-color: #90aeff;
 	--secondary-color-light: #5d7fcb;
 	--secondary-color-dark: #c4e0ff;
 	--positive-color: #66bb6a;
 	--negative-color:  #c62828;
 	--background-color: #1C1C21;
-	--background-color-lighter: #36363e;
+	--background-color-lighter: #9FB710;
 	--background-color-dark: #1f1f24;
     --background: #1f1f24;
-    --shadow: hsl(0, 3%, 6%);
+    --shadow:
+    hsl(0, 3%, 6%);
 	--text-color: #ffffff;
 	--text-color-disabled: #dcdcdc;
     --accent-color: #c0392b;

@@ -42,6 +42,7 @@ local vehicleClasses = {
 
 local function arrayToSet(array)
     local set = {}
+    print(json.encode(array, {indent = true}))
     for _, item in ipairs(array) do
         set[item] = true
     end

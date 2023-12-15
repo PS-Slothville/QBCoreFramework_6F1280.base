@@ -9,7 +9,7 @@ shared_scripts {
     'locales/en.lua',
     'locales/*.lua',
     'config.lua',
-    '@qb-apartments/config.lua',
+    -- '@qb-apartments/config.lua',
 }
 
 client_script 'client.lua'

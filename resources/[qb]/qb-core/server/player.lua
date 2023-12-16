@@ -179,7 +179,7 @@ function QBCore.Player.CheckPlayerData(source, PlayerData)
     PlayerData.gang.grade.level = PlayerData.gang.grade.level or 0
     -- Other
     PlayerData.position = PlayerData.position or QBCore.Config.DefaultSpawn
-    PlayerData.items = GetResourceState('qb-inventory') ~= 'missing' and exports['qb-inventory']:LoadInventory(PlayerData.source, PlayerData.citizenid) or {}
+    PlayerData.items = PlayerData.items or {}
     return QBCore.Player.CreatePlayer(PlayerData, Offline)
 end
 
@@ -519,7 +519,7 @@ function QBCore.Player.Save(source)
             position = json.encode(pcoords),
             metadata = json.encode(PlayerData.metadata)
         })
-        if GetResourceState('qb-inventory') ~= 'missing' then exports['qb-inventory']:SaveInventory(source) end
+        -- if GetResourceState('qb-inventory') ~= 'missing' then exports['qb-inventory']:SaveInventory(source) end
         QBCore.ShowSuccess(GetCurrentResourceName(), PlayerData.name .. ' PLAYER SAVED!')
     else
         QBCore.ShowError(GetCurrentResourceName(), 'ERROR QBCORE.PLAYER.SAVE - PLAYERDATA IS EMPTY!')
@@ -540,7 +540,7 @@ function QBCore.Player.SaveOffline(PlayerData)
             position = json.encode(PlayerData.position),
             metadata = json.encode(PlayerData.metadata)
         })
-        if GetResourceState('qb-inventory') ~= 'missing' then exports['qb-inventory']:SaveInventory(PlayerData, true) end
+        -- if GetResourceState('qb-inventory') ~= 'missing' then exports['qb-inventory']:SaveInventory(PlayerData, true) end
         QBCore.ShowSuccess(GetCurrentResourceName(), PlayerData.name .. ' OFFLINE PLAYER SAVED!')
     else
         QBCore.ShowError(GetCurrentResourceName(), 'ERROR QBCORE.PLAYER.SAVEOFFLINE - PLAYERDATA IS EMPTY!')
@@ -614,30 +614,30 @@ end
 
 -- Inventory Backwards Compatibility
 
-function QBCore.Player.SaveInventory(source)
-    if GetResourceState('qb-inventory') == 'missing' then return end
-    exports['qb-inventory']:SaveInventory(source, false)
-end
+-- function QBCore.Player.SaveInventory(source)
+--     if GetResourceState('qb-inventory') == 'missing' then return end
+--     exports['qb-inventory']:SaveInventory(source, false)
+-- end
 
-function QBCore.Player.SaveOfflineInventory(PlayerData)
-    if GetResourceState('qb-inventory') == 'missing' then return end
-    exports['qb-inventory']:SaveInventory(PlayerData, true)
-end
+-- function QBCore.Player.SaveOfflineInventory(PlayerData)
+--     if GetResourceState('qb-inventory') == 'missing' then return end
+--     exports['qb-inventory']:SaveInventory(PlayerData, true)
+-- end
 
-function QBCore.Player.GetTotalWeight(items)
-    if GetResourceState('qb-inventory') == 'missing' then return end
-    return exports['qb-inventory']:GetTotalWeight(items)
-end
+-- function QBCore.Player.GetTotalWeight(items)
+--     if GetResourceState('qb-inventory') == 'missing' then return end
+--     return exports['qb-inventory']:GetTotalWeight(items)
+-- end
 
-function QBCore.Player.GetSlotsByItem(items, itemName)
-    if GetResourceState('qb-inventory') == 'missing' then return end
-    return exports['qb-inventory']:GetSlotsByItem(items, itemName)
-end
+-- function QBCore.Player.GetSlotsByItem(items, itemName)
+--     if GetResourceState('qb-inventory') == 'missing' then return end
+--     return exports['qb-inventory']:GetSlotsByItem(items, itemName)
+-- end
 
-function QBCore.Player.GetFirstSlotByItem(items, itemName)
-    if GetResourceState('qb-inventory') == 'missing' then return end
-    return exports['qb-inventory']:GetFirstSlotByItem(items, itemName)
-end
+-- function QBCore.Player.GetFirstSlotByItem(items, itemName)
+--     if GetResourceState('qb-inventory') == 'missing' then return end
+--     return exports['qb-inventory']:GetFirstSlotByItem(items, itemName)
+-- end
 
 -- Util Functions
 
@@ -658,7 +658,7 @@ function QBCore.Functions.CreateAccountNumber()
     local UniqueFound = false
     local AccountNumber = nil
     while not UniqueFound do
-        AccountNumber = 'US0' .. math.random(1, 9) .. 'QBCore' .. math.random(1111, 9999) .. math.random(1111, 9999) .. math.random(11, 99)
+        AccountNumber = 'SV0' .. math.random(1, 9) .. 'SANDRS' .. math.random(1111, 9999) .. math.random(1111, 9999) .. math.random(11, 99)
         local query = '%' .. AccountNumber .. '%'
         local result = MySQL.prepare.await('SELECT COUNT(*) as count FROM players WHERE charinfo LIKE ?', { query })
         if result == 0 then
@@ -700,7 +700,7 @@ function QBCore.Player.CreateWalletId()
     local UniqueFound = false
     local WalletId = nil
     while not UniqueFound do
-        WalletId = 'QB-' .. math.random(11111111, 99999999)
+        WalletId = 'SV-' .. math.random(11111111, 99999999)
         local query = '%' .. WalletId .. '%'
         local result = MySQL.prepare.await('SELECT COUNT(*) as count FROM players WHERE metadata LIKE ?', { query })
         if result == 0 then

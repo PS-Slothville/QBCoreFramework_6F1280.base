@@ -1,7 +1,6 @@
 Config = Config or {}
 Config.Debug = false
 
-Config.UseCustomUi = true 
 Config.UseResetTimer = true 
 Config.RaceResetTimer = 300000
 Config.ShowMechToolOption = true -- set to false if you dont use cw-mechtool
@@ -210,7 +209,7 @@ Config.ParticpationTrophies = {
     minumumRaceLength = 3000
 }
 
-Config.UseOxLibForKeybind = false -- YOU HAVE TO ENABLE OXLIB IN FXMANIFEST TO USE THIS!!!!!!!!!!!!!!!!!!!!!!!!! Use oxlib for keybinds instead of natives.
+Config.UseOxLibForKeybind = true -- YOU HAVE TO ENABLE OXLIB IN FXMANIFEST TO USE THIS!!!!!!!!!!!!!!!!!!!!!!!!! Use oxlib for keybinds instead of natives.
 Config.Buttons = {
     AddCheckpoint = 'INSERT',
     DeleteCheckpoint = 'DELETE',

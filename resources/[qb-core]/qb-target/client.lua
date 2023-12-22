@@ -211,7 +211,7 @@ local function CheckEntity(flag, datatable, entity, distance)
 		return
 	end
 	success = true
-	SendNUIMessage({response = "foundTarget", data = nuiData[slot].targeticon})
+	SendNUIMessage({response = "foundTarget", data = nuiData[slot].targeticon or nuiData[slot].icon})
 	DrawOutlineEntity(entity, true)
 	while targetActive and success do
 		local _, dist, entity2 = RaycastCamera(flag)
@@ -322,7 +322,7 @@ local function EnableTarget()
 						local slot = SetupOptions(datatable, entity, distance)
 						if next(nuiData) then
 							success = true
-							SendNUIMessage({response = "foundTarget", data = nuiData[slot].targeticon})
+							SendNUIMessage({response = "foundTarget", data = nuiData[slot].targeticon or nuiData[slot].icon})
 							DrawOutlineEntity(entity, true)
 							while targetActive and success do
 								local coords2, dist, entity2 = RaycastCamera(flag)
@@ -392,7 +392,7 @@ local function EnableTarget()
 					local slot = SetupOptions(closestZone.targetoptions.options, entity, distance, true)
 					if next(nuiData) then
 						success = true
-						SendNUIMessage({response = "foundTarget", data = nuiData[slot].targeticon})
+						SendNUIMessage({response = "foundTarget", data = nuiData[slot].targeticon or nuiData[slot].icon})
 						if Config.DrawSprite then
 							listSprite[closestZone.name].success = true
 						end

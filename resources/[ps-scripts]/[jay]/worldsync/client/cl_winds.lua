@@ -6,7 +6,7 @@ CreateThread(function()
         for _, obj in ipairs(GetGamePool("CObject")) do
             if not IsEntityAPed(obj) and IsEntityAnObject(obj) then
                 local propHash = GetEntityModel(obj)
-                if Config.WindProps[propHash] or Config.AnyProp and not Config.WindDisableProp[hash] then -- test
+                if Config.WindProps[propHash] or Config.AnyProp and not Config.WindDisableProp[hash] and GetInteriorFromEntity(obj) == 0 then -- test
                     cache_prop_id[obj] = propHash
                 end
             end
@@ -28,7 +28,9 @@ CreateThread(function()
                     cache_prop_id[obj] = nil 
                     bypass = true
                 end
-                if bypass or Config.WindProps[hash] or Config.AnyProp and not Config.WindDisableProp[hash] then -- test
+                -- if GetInteriorFromEntity(obj) == 0 then print(GetInteriorFromEntity(obj) == 0) end
+
+                if bypass or Config.WindProps[hash] or Config.AnyProp and not Config.WindDisableProp[hash] and GetInteriorFromEntity(obj) == 0 then -- test
                     -- print("test")
                     ApplyForceToEntityCenterOfMass(obj, 1, GlobalState.WindVector.x, GlobalState.WindVector.y, GlobalState.WindVector.z, 0.0, 0.0, 0.0, 0, true, true, true, true, true)   
                 end

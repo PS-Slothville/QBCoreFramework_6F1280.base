@@ -5,7 +5,7 @@ local showMenu = false
 local kvpData = {
     ["pause"] = "190,218,23",
     ["waypoint"] = "190,218,23",
-    ["wheel"] = "190,218,23"
+    ["wheel"] = "0,0,0"
 }
 
 CreateThread(function()

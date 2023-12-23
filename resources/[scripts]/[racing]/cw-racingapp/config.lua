@@ -19,7 +19,7 @@ Config.ShowGpsRoute = true -- Default for showing GPS route
 Config.UseUglyWaypoint = false -- Use the standard gta waypoint. It will target 2 checkpoints ahead unless finish line is next.
 
 Config.CustomAmounts = { -- custom max amout of racer names
-    ['QBQ16539'] = 100,
+    ['KKN47877'] = 100,
     ['FMN22732'] = 100,
     ['SYY99260'] = 100,
 }
@@ -27,7 +27,7 @@ Config.CustomAmounts = { -- custom max amout of racer names
 Config.LimitTracks = true -- set to true to limit tracks per citizenid. Below two fields are irrelevent if this is false
 Config.MaxCharacterTracks = 2 -- Amount of tracks allowed per citizenid
 Config.CustomAmountsOfTracks = { -- custom max amout of tracks per citizenid
-    ['QBQ16539'] = 100,
+    ['KKN47877'] = 100,
     ['FMN22732'] = 100,
     ['SYY99260'] = 100,
 }

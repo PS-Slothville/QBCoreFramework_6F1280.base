@@ -2,14 +2,14 @@ Config = Config or {}
 
 Config.WindDirections = {
     -- Average Wind Speeds | The script handles the wind force
-    ['NORTH']       = vector3(5.0, 25.0, 5.0),
-    ['NORTHEAST']   = vector3(25.0, 25.0, 5.0),
-    ['EAST']        = vector3(25.0, 5.0, 5.0),
-    ['SOUTHEAST']   = vector3(25.0, -25.0, 5.0),
-    ['SOUTH']       = vector3(5.0, -25.0, 5.0),
-    ['SOUTHWEST']   = vector3(-25.0, -25.0, 5.0),
-    ['WEST']        = vector3(-25.0, 5.0, 5.0),
-    ['NORTHWEST']   = vector3(-25.0, 25.0, 5.0),
+    ['NORTH']       = vector3(0.0, 10.0, 5.0),
+    ['NORTHEAST']   = vector3(10.0, 10.0, 5.0),
+    ['EAST']        = vector3(10.0, 0.0, 5.0),
+    ['SOUTHEAST']   = vector3(10.0, -10.0, 5.0),
+    ['SOUTH']       = vector3(0.0, -10.0, 5.0),
+    ['SOUTHWEST']   = vector3(-10.0, -10.0, 5.0),
+    ['WEST']        = vector3(-10.0, 0.0, 5.0),
+    ['NORTHWEST']   = vector3(-10.0, 10.0, 5.0),
 }
 
 Config.AdvancedWeatherTypes = { -- Invalid no auto spawning atm

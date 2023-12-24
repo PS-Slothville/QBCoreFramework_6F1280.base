@@ -467,24 +467,26 @@ Config.JobInteractions = {
             type = 'client',
             event = 'qb-taxi:client:enableMeter',
             shouldClose = true
-        }, {
-            id = 'npc_mission',
-            title = 'NPC Mission',
-            icon = 'taxi',
-            type = 'client',
-            event = 'qb-taxi:client:DoTaxiNpc',
-            shouldClose = true
-        }
+        },
+        -- {
+        --     id = 'npc_mission',
+        --     title = 'NPC Mission',
+        --     icon = 'taxi',
+        --     type = 'client',
+        --     event = 'qb-taxi:client:DoTaxiNpc',
+        --     shouldClose = true
+        -- }
     },
     ["tow"] = {
+        -- {
+        --     id = 'togglenpc',
+        --     title = 'Toggle NPC',
+        --     icon = 'toggle-on',
+        --     type = 'client',
+        --     event = 'jobs:client:ToggleNpc',
+        --     shouldClose = true
+        -- },
         {
-            id = 'togglenpc',
-            title = 'Toggle NPC',
-            icon = 'toggle-on',
-            type = 'client',
-            event = 'jobs:client:ToggleNpc',
-            shouldClose = true
-        }, {
             id = 'towvehicle',
             title = 'Tow vehicle',
             icon = 'truck-pickup',
@@ -493,25 +495,49 @@ Config.JobInteractions = {
             shouldClose = true
         }
     },
-    ["mechanic"] = {
+    -- ["mechanic"] = {
+    --     {
+    --         id = 'towvehicle',
+    --         title = 'Tow vehicle',
+    --         icon = 'truck-pickup',
+    --         type = 'client',
+    --         event = 'qb-tow:client:TowVehicle',
+    --         shouldClose = true
+    --     }
+    -- },
+    ["realestate"] = {
         {
-            id = 'towvehicle',
-            title = 'Tow vehicle',
-            icon = 'truck-pickup',
-            type = 'client',
-            event = 'qb-tow:client:TowVehicle',
+            id = 'housing',
+            title = 'Housing',
+            icon = 'tablet',
+            type = 'command',
+            event = 'housing',
             shouldClose = true
         }
     },
     ["police"] = {
         {
-            id = 'emergencybutton',
-            title = 'Emergency button',
+            id = 'officerdown',
+            title = 'Officer Down',
             icon = 'bell',
             type = 'client',
-            event = 'police:client:SendPoliceEmergencyAlert',
+            event = 'ps-dispatch:client:officerdown',
             shouldClose = true
         }, {
+            id = 'requestbackup',
+            title = 'Request Backup',
+            icon = 'bell',
+            type = 'client',
+            event = 'ps-dispatch:client:officerbackup',
+            shouldClose = true
+        }, {
+            id = 'panicbutton',
+            title = 'Panic Button',
+            icon = 'bell',
+            type = 'client',
+            event = 'ps-dispatch:client:officerdistress',
+            shouldClose = true
+        },{
             id = 'checkvehstatus',
             title = 'Check Tune Status',
             icon = 'circle-info',
@@ -519,11 +545,11 @@ Config.JobInteractions = {
             event = 'qb-tunerchip:client:TuneStatus',
             shouldClose = true
         }, {
-            id = 'resethouse',
-            title = 'Reset house lock',
-            icon = 'key',
-            type = 'client',
-            event = 'qb-houses:client:ResetHouse',
+            id = 'policemdt',
+            title = 'MDT',
+            icon = 'tablet',
+            type = 'command',
+            event = 'mdt',
             shouldClose = true
         }, {
             id = 'takedriverlicense',
@@ -632,16 +658,6 @@ Config.JobInteractions = {
             }
         }
     },
-    ["hotdog"] = {
-        {
-            id = 'togglesell',
-            title = 'Toggle sell',
-            icon = 'hotdog',
-            type = 'client',
-            event = 'qb-hotdogjob:client:ToggleSell',
-            shouldClose = true
-        }
-    }
 }
 
 Config.TrunkClasses = {

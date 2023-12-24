@@ -1,9 +1,13 @@
+local resetSnow = false
+
 CreateThread(function()
     while true do
+        -- print(GlobalState.AlwaysSnow)
         if GlobalState.AlwaysSnow then
-            ForceSnowPass(GlobalState.AlwaysSnow)
-            SetForceVehicleTrails(GlobalState.AlwaysSnow)
-            SetForcePedFootstepsTracks(GlobalState.AlwaysSnow)
+            ForceSnowPass(true)
+            SetForceVehicleTrails(true)
+            SetForcePedFootstepsTracks(true)
+            resetSnow = true
             if not HasNamedPtfxAssetLoaded("core_snow") then
                 RequestNamedPtfxAsset("core_snow")
 
@@ -13,7 +17,13 @@ CreateThread(function()
             end
 
             UseParticleFxAssetNextCall("core_snow")
-        else
+        else 
+            if resetSnow then 
+                resetSnow = false
+                ForceSnowPass(false)
+                SetForceVehicleTrails(false)
+                SetForcePedFootstepsTracks(false)
+            end
             RemoveNamedPtfxAsset("core_snow")
         end
 

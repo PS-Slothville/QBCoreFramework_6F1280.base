@@ -7,7 +7,7 @@ config.RefreshTime = 300
 config.interact_sound_file = "ogg"
 
 -- is emulator enabled ?
-config.interact_sound_enable = false
+config.interact_sound_enable = true
 
 -- how much close player has to be to the sound before starting updating position ?
 config.distanceBeforeUpdatingPos = 40

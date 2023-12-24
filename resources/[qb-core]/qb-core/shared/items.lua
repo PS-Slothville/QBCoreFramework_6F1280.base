@@ -390,4 +390,8 @@ QBShared.Items = {
     weed_nutrition               = { name = 'weed_nutrition', label = 'Plant Fertilizer', weight = 2000, type = 'item', image = 'weed_nutrition.png', unique = false, useable = true, shouldClose = true, combinable = nil, description = 'Plant nutrition' },
 
 	encryptedtablet 			 = {name = 'encryptedtablet', 				label = 'Encrypted Tablet', 		weight = 2000, 		type = 'item', 		image = 'tablet.png', 				unique = false, 	useable = true, 	shouldClose = true,	   combinable = nil,   description = 'A secured tablet'},
+
+    mdtcitation 				 = {name = 'mdtcitation', 			  	  	label = 'Citation', 			weight = 1000, 		type = 'item', 		image = 'citation.png', 			unique = true, 		useable = false, shouldClose = true,	   combinable = nil,   description = 'Citation from a police officer!'},
+
+
 }

@@ -87,7 +87,8 @@ CreateThread(function()
                                         if street2 ~= nil then
                                             streetLabel = streetLabel .. ' ' .. street2
                                         end
-                                        TriggerServerEvent('qb-storerobbery:server:callCops', 'safe', currentSafe, streetLabel, pos)
+                                        exports['ps-dispatch']:StoreRobbery(Config.Safes[currentSafe].camId)
+                                        -- TriggerServerEvent('qb-storerobbery:server:callCops', 'safe', currentSafe, streetLabel, pos)
                                         copsCalled = true
                                     end
                                 else
@@ -148,7 +149,8 @@ RegisterNetEvent('lockpicks:UseLockpick', function(isAdvanced)
                         if street2 ~= nil then
                             streetLabel = streetLabel .. ' ' .. street2
                         end
-                        TriggerServerEvent('qb-storerobbery:server:callCops', 'cashier', currentRegister, streetLabel, pos)
+                        exports['ps-dispatch']:StoreRobbery(Config.Registers[currentRegister].camId)
+                        -- TriggerServerEvent('qb-storerobbery:server:callCops', 'cashier', currentRegister, streetLabel, pos)
                         copsCalled = true
                     end
                 else
@@ -165,7 +167,8 @@ RegisterNetEvent('lockpicks:UseLockpick', function(isAdvanced)
                         if street2 ~= nil then
                             streetLabel = streetLabel .. ' ' .. street2
                         end
-                        TriggerServerEvent('qb-storerobbery:server:callCops', 'cashier', currentRegister, streetLabel, pos)
+                        exports['ps-dispatch']:StoreRobbery(Config.Registers[currentRegister].camId)
+                        -- TriggerServerEvent('qb-storerobbery:server:callCops', 'cashier', currentRegister, streetLabel, pos)
                         copsCalled = true
                     end
                 end

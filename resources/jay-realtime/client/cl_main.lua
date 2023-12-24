@@ -99,7 +99,7 @@ RegisterNetEvent('aj-patrols:server:catchGuard', function(src, pID, category, ro
             local coords = GetEntityCoords(me)
             local guard = GetEntityCoords(ped)
             local dist = #(coords-guard)
-            print(IsDead())
+            -- print(IsDead())
             if dist < 20 and not IsDead() then
                 SetPedRelationshipGroupHash(ped, `HATES_PLAYER`)
                 SetPedAccuracy(ped, 60)

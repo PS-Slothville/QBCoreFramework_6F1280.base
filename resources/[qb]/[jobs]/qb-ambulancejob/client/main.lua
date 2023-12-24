@@ -145,6 +145,7 @@ local function SetClosestBed()
 end
 
 local function IsInjuryCausingLimp()
+    -- print("check")
     for _, v in pairs(BodyParts) do
         if v.causeLimp and v.isDamaged then
             return true
@@ -152,6 +153,7 @@ local function IsInjuryCausingLimp()
     end
     return false
 end
+exports("IsInjuryCausingLimp", IsInjuryCausingLimp)
 
 local function ProcessRunStuff(ped)
     if IsInjuryCausingLimp() then

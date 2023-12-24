@@ -371,13 +371,13 @@ RegisterNetEvent('qb-occasions:client:MainMenu', function()
                 event = 'qb-vehiclesales:client:SellVehicle',
             }
         },
-        {
-            header = Lang:t('menu.sell_back'),
-            txt = Lang:t('menu.sell_back_help'),
-            params = {
-                event = 'qb-occasions:client:SellBackCar',
-            }
-        }
+        -- {
+        --     header = Lang:t('menu.sell_back'),
+        --     txt = Lang:t('menu.sell_back_help'),
+        --     params = {
+        --         event = 'qb-occasions:client:SellBackCar',
+        --     }
+        -- }
     }
 
     exports['qb-menu']:openMenu(MainMenu)

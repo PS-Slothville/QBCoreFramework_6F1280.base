@@ -50,17 +50,17 @@ Config.Products = {
         {name = 'cleaningkit',       price = 150, amount = 150, info = {}, type = 'item'},
         {name = 'advancedrepairkit', price = 500, amount = 50,  info = {}, type = 'item', requiredJob = { 'mechanic' }},
     },
-    ['weedshop'] = {
-        {name = 'joint',          price = 10,  amount = 50,   info = {}, type = 'item'},
-        {name = 'weapon_poolcue', price = 100, amount = 50,   info = {}, type = 'item'},
-        {name = 'weed_nutrition', price = 20,  amount = 50,   info = {}, type = 'item'},
-        {name = 'empty_weed_bag', price = 2,   amount = 1000, info = {}, type = 'item'},
-        {name = 'rolling_paper',  price = 2,   amount = 1000, info = {}, type = 'item'},
-    },
-    ['gearshop'] = {
-        {name = 'diving_gear', price = 2500, amount = 10, info = {}, type = 'item'},
-        {name = 'jerry_can',   price = 200,  amount = 50, info = {}, type = 'item'},
-    },
+    -- ['weedshop'] = {
+    --     {name = 'joint',          price = 10,  amount = 50,   info = {}, type = 'item'},
+    --     {name = 'weapon_poolcue', price = 100, amount = 50,   info = {}, type = 'item'},
+    --     {name = 'weed_nutrition', price = 20,  amount = 50,   info = {}, type = 'item'},
+    --     {name = 'empty_weed_bag', price = 2,   amount = 1000, info = {}, type = 'item'},
+    --     {name = 'rolling_paper',  price = 2,   amount = 1000, info = {}, type = 'item'},
+    -- },
+    -- ['gearshop'] = {
+    --     {name = 'diving_gear', price = 2500, amount = 10, info = {}, type = 'item'},
+    --     {name = 'jerry_can',   price = 200,  amount = 50, info = {}, type = 'item'},
+    -- },
     ['leisureshop'] = {
         {name = 'parachute',   price = 2500, amount = 10, info = {}, type = 'item'},
         {name = 'binoculars',  price = 50,   amount = 50, info = {}, type = 'item'},
@@ -79,10 +79,10 @@ Config.Products = {
     ['casino'] = {
         {name = 'casinochips', price = 1, amount = 999999, info = {}, type = 'item'}
     },
-    ['racers'] = {
-        {name = 'racing_gps', price = 4000, amount = 250, info = {}, type = 'item'},
-        {name = 'harness', price = 2000, amount = 250, info = {}, type = 'item'},
-    },
+    -- ['racers'] = {
+    --     {name = 'racing_gps', price = 4000, amount = 250, info = {}, type = 'item'},
+    --     {name = 'harness', price = 2000, amount = 250, info = {}, type = 'item'},
+    -- },
 }
 
 Config.Locations = {
@@ -654,38 +654,38 @@ Config.Locations = {
     },
 
     -- Weedshop Locations
-    ['weedshop'] = {
-        ['label'] = 'Smoke On The Water',
-        ['coords'] = vector4(-1168.26, -1573.2, 4.66, 105.24),
-        ['ped'] = 'a_m_y_hippy_01',
-        ['scenario'] = 'WORLD_HUMAN_AA_SMOKE',
-        ['radius'] = 1.5,
-        ['targetIcon'] = 'fas fa-cannabis',
-        ['targetLabel'] = 'Open Weed Shop',
-        ['products'] = Config.Products['weedshop'],
-        ['showblip'] = true,
-        ['blipsprite'] = 140,
-        ['blipscale'] = 0.8,
-        ['blipcolor'] = 0,
-        ['delivery'] = vector4(-1162.13, -1568.57, 4.39, 328.52)
-    },
+    -- ['weedshop'] = {
+    --     ['label'] = 'Smoke On The Water',
+    --     ['coords'] = vector4(-1168.26, -1573.2, 4.66, 105.24),
+    --     ['ped'] = 'a_m_y_hippy_01',
+    --     ['scenario'] = 'WORLD_HUMAN_AA_SMOKE',
+    --     ['radius'] = 1.5,
+    --     ['targetIcon'] = 'fas fa-cannabis',
+    --     ['targetLabel'] = 'Open Weed Shop',
+    --     ['products'] = Config.Products['weedshop'],
+    --     ['showblip'] = true,
+    --     ['blipsprite'] = 140,
+    --     ['blipscale'] = 0.8,
+    --     ['blipcolor'] = 0,
+    --     ['delivery'] = vector4(-1162.13, -1568.57, 4.39, 328.52)
+    -- },
 
     -- Sea Word Locations
-    ['seaword'] = {
-        ['label'] = 'Sea Word',
-        ['coords'] = vector4(-1687.03, -1072.18, 13.15, 52.93),
-        ['ped'] = 'a_m_y_beach_01',
-        ['scenario'] = 'WORLD_HUMAN_STAND_IMPATIENT',
-        ['radius'] = 1.5,
-        ['targetIcon'] = 'fas fa-fish',
-        ['targetLabel'] = 'Sea Word',
-        ['products'] = Config.Products['gearshop'],
-        ['showblip'] = true,
-        ['blipsprite'] = 52,
-        ['blipscale'] = 0.8,
-        ['blipcolor'] = 0,
-        ['delivery'] = vector4(-1674.18, -1073.7, 13.15, 333.56)
-    },
+    -- ['seaword'] = {
+    --     ['label'] = 'Sea Word',
+    --     ['coords'] = vector4(-1687.03, -1072.18, 13.15, 52.93),
+    --     ['ped'] = 'a_m_y_beach_01',
+    --     ['scenario'] = 'WORLD_HUMAN_STAND_IMPATIENT',
+    --     ['radius'] = 1.5,
+    --     ['targetIcon'] = 'fas fa-fish',
+    --     ['targetLabel'] = 'Sea Word',
+    --     ['products'] = Config.Products['gearshop'],
+    --     ['showblip'] = true,
+    --     ['blipsprite'] = 52,
+    --     ['blipscale'] = 0.8,
+    --     ['blipcolor'] = 0,
+    --     ['delivery'] = vector4(-1674.18, -1073.7, 13.15, 333.56)
+    -- },
 
     -- Leisure Shop Locations
     ['leisureshop'] = {
@@ -704,20 +704,20 @@ Config.Locations = {
         ['delivery'] = vector4(-1507.64, 1505.52, 115.29, 262.2)
     },
 
-    -- Racers World
-    ['racershop'] = {
-        ['label'] = 'Racers Shop',
-        ['coords'] = vector4(805.7719, -973.9551, 26.3087, 224.3024),
-        ['ped'] = 'g_f_y_families_01',
-        ['scenario'] = 'WORLD_HUMAN_STAND_IMPATIENT',
-        ['radius'] = 1.5,
-        ['targetIcon'] = 'fas fa-car',
-        ['targetLabel'] = 'Open Shop',
-        ['products'] = Config.Products['racers'],
-        ['showblip'] = false,
-        ['blipsprite'] = 52,
-        ['blipscale'] = 0.8,
-        ['blipcolor'] = 0,
-        ['delivery'] = vector4(809.5714, -974.7120, 26.3087, 168.4730)
-    },
+    -- -- Racers World
+    -- ['racershop'] = {
+    --     ['label'] = 'Racers Shop',
+    --     ['coords'] = vector4(805.7719, -973.9551, 26.3087, 224.3024),
+    --     ['ped'] = 'g_f_y_families_01',
+    --     ['scenario'] = 'WORLD_HUMAN_STAND_IMPATIENT',
+    --     ['radius'] = 1.5,
+    --     ['targetIcon'] = 'fas fa-car',
+    --     ['targetLabel'] = 'Open Shop',
+    --     ['products'] = Config.Products['racers'],
+    --     ['showblip'] = false,
+    --     ['blipsprite'] = 52,
+    --     ['blipscale'] = 0.8,
+    --     ['blipcolor'] = 0,
+    --     ['delivery'] = vector4(809.5714, -974.7120, 26.3087, 168.4730)
+    -- },
 }

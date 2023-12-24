@@ -14,8 +14,12 @@ RegisterNetEvent("QBCore:Client:OnPlayerLoaded", function()
     end
 end)
 
-RegisterNetEvent('ps-walks:walkpause', function()
-	walkpause = not walkpause
+RegisterNetEvent('ps-walks:Sync', function()
+	walkpause = true
+end)
+
+RegisterNetEvent('ps-walks:DisableSync', function()
+	walkpause = true
 end)
 
 AddEventHandler('onResourceStart', function(resourceName)
@@ -61,13 +65,14 @@ end)
 CreateThread(function()
     while true do
         Wait(1000)
-		if not walkpause then
-			local ped = PlayerPedId()
-			local walkstyleCurrent = GetPedMovementClipset(ped)
-			if walkstyleCurrent ~= joaat(walkstyle) or walkstyle == "default" then
-				SetWalks(walkstyle)
-			end
-		end
+        if not walkpause then return end
+        if not exports['qb-ambulancejob']:IsInjuryCausingLimp() then return end 
+        if not exports['qb-smallresources']:IsCrouched() then return end
+        local ped = PlayerPedId()
+        local walkstyleCurrent = GetPedMovementClipset(ped)
+        if walkstyleCurrent ~= joaat(walkstyle) or walkstyle == "default" then
+            SetWalks(walkstyle)
+        end
     end
 end)
 

@@ -44,12 +44,9 @@ RegisterNetEvent('qb-storerobbery:server:takeMoney', function(register, isDone)
     -- Add any additional code you want above this comment to do whilst robbing a register, everything above the if statement under this will be triggered every 2 seconds when a register is getting robbed.
 
     if isDone then
-        local bags = math.random(1, 3)
-        local info = {
-            worth = math.random(cashA, cashB)
-        }
-        Player.Functions.AddItem('markedbills', bags, false, info)
-        TriggerClientEvent('inventory:client:ItemBox', src, QBCore.Shared.Items['markedbills'], 'add')
+        local amt = math.random(1000, 2700)
+        Player.Functions.AddItem('cashrolls', amt)
+        TriggerClientEvent('inventory:client:ItemBox', src, QBCore.Shared.Items['cashrolls'], 'add', amt)
         if math.random(1, 100) <= 10 then
             local code = SafeCodes[Config.Registers[register].safeKey]
             if Config.Safes[Config.Registers[register].safeKey].type == 'keypad' then

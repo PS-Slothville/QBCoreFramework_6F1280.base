@@ -517,27 +517,34 @@ Config.JobInteractions = {
     },
     ["police"] = {
         {
-            id = 'officerdown',
-            title = 'Officer Down',
-            icon = 'bell',
-            type = 'client',
-            event = 'ps-dispatch:client:officerdown',
-            shouldClose = true
+            id = 'dispatch',
+            title = 'Dispatch',
+            icon = 'walkie-talkie',
+            items = {
+                {
+                    id = 'officerdown',
+                    title = 'Officer Down',
+                    icon = 'bell',
+                    type = 'client',
+                    event = 'ps-dispatch:client:officerdown',
+                    shouldClose = true
+                }, {
+                    id = 'requestbackup',
+                    title = 'Request Backup',
+                    icon = 'bell',
+                    type = 'client',
+                    event = 'ps-dispatch:client:officerbackup',
+                    shouldClose = true
+                }, {
+                    id = 'panicbutton',
+                    title = 'Panic Button',
+                    icon = 'bell',
+                    type = 'client',
+                    event = 'ps-dispatch:client:officerdistress',
+                    shouldClose = true
+                }
+            }
         }, {
-            id = 'requestbackup',
-            title = 'Request Backup',
-            icon = 'bell',
-            type = 'client',
-            event = 'ps-dispatch:client:officerbackup',
-            shouldClose = true
-        }, {
-            id = 'panicbutton',
-            title = 'Panic Button',
-            icon = 'bell',
-            type = 'client',
-            event = 'ps-dispatch:client:officerdistress',
-            shouldClose = true
-        },{
             id = 'checkvehstatus',
             title = 'Check Tune Status',
             icon = 'circle-info',

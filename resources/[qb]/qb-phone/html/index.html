@@ -27,6 +27,7 @@
     <link rel="stylesheet" href="./css/trucker.css">
     <link rel="stylesheet" href="./css/gallery.css">
     <link rel="stylesheet" href="./css/camera.css">
+    <link rel="stylesheet" href="./css/tuner.css">
 
     <!-- CDN's -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> <!-- JQuery -->
@@ -1083,6 +1084,30 @@
                             </div>
                         </div>
                     </div>
+                    <div class="tuner-app">
+                        <div class="tuner-app-header">
+                            <img src="./img/RSL.png" class="tuner-header-image">
+                        </div>
+                         <div class="tuner-homescreen">
+                            <div class="tuner-cardetails">
+                                <div id="tuner-rating" class="tuner-detail-rating"><span class="tuner-answer"></span></div>
+                                    <div>
+                                        <div id="tuner-accel" class="tuner-detail-box"><span class="tuner-detail">Acceleration</span><span class="tuner-answer"></span></div>
+                                        <div id="tuner-speed" class="tuner-detail-box"><span class="tuner-detail">Speed</span><span class="tuner-answer"></span></div>
+                                        <div id="tuner-handling" class="tuner-detail-box"><span class="tuner-detail">Handling</span><span class="tuner-answer"></span></div>
+                                        <div id="tuner-braking" class="tuner-detail-box"><span class="tuner-detail">Braking</span><span class="tuner-answer"></span></div>
+                                        <div id="tuner-drivetrain" class="tuner-detail-box last"><span class="tuner-detail">drivetrain</span><span class="tuner-answer"></span></div>
+                                    </div>
+                                    <div class="tuner-group">
+                                        <div id="tuner-brand" class="tuner-detail-box"><span class="tuner-detail">Brand</span><span class="tuner-answer"></span></div>
+                                        <div id="tuner-model" class="tuner-detail-box"><span class="tuner-detail">Model</span><span class="tuner-answer"></span></div>
+                                    </div>
+                                    <div class="tuner-reload">
+                                        <i class="fas fa-redo"></i>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="phone-currentcall-container">
@@ -1131,6 +1156,7 @@
         <script src="./js/trucker.js"></script>
         <script src="./js/gallery.js"></script>
         <script src="./js/camera.js"></script>
+        <script src="./js/tuner.js"></script>
         <script type="text/javascript">$('#whatsapp-openedchat-message').emojioneArea({inline: true, searchPosition: "bottom", shortnames: true})</script>
         <!-- <script type="text/javascript">$('#tweet-new-message').emojioneArea({pickerPostion: 'bottom' ,inline: true, shortnames: true})</script> -->
     </body>

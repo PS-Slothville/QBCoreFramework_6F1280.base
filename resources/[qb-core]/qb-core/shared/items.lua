@@ -361,6 +361,7 @@ QBShared.Items = {
     lighter                      = { name = 'lighter', label = 'Lighter', weight = 0, type = 'item', image = 'lighter.png', unique = false, useable = false, shouldClose = true, combinable = nil, description = 'On new years eve a nice fire to stand next to' },
     certificate                  = { name = 'certificate', label = 'Certificate', weight = 0, type = 'item', image = 'certificate.png', unique = false, useable = false, shouldClose = true, combinable = nil, description = 'Certificate that proves you own certain stuff' },
     markedbills                  = { name = 'markedbills', label = 'Marked Money', weight = 1000, type = 'item', image = 'markedbills.png', unique = true, useable = false, shouldClose = true, combinable = nil, description = 'Money?' },
+    cashrolls                    = { name = 'cashrolls', label = 'Cash Rolls', weight = 1000, type = 'item', image = 'cashrolls.png', unique = true, useable = false, shouldClose = true, combinable = nil, description = 'Money?' },
     labkey                       = { name = 'labkey', label = 'Key', weight = 500, type = 'item', image = 'labkey.png', unique = true, useable = true, shouldClose = true, combinable = nil, description = 'Key for a lock...?' },
     printerdocument              = { name = 'printerdocument', label = 'Document', weight = 500, type = 'item', image = 'printerdocument.png', unique = true, useable = true, shouldClose = true, combinable = nil, description = 'A nice document' },
     newscam                      = { name = 'newscam', label = 'News Camera', weight = 100, type = 'item', image = 'newscam.png', unique = true, useable = true, shouldClose = true, combinable = nil, description = 'A camera for the news' },
@@ -390,6 +391,9 @@ QBShared.Items = {
     weed_nutrition               = { name = 'weed_nutrition', label = 'Plant Fertilizer', weight = 2000, type = 'item', image = 'weed_nutrition.png', unique = false, useable = true, shouldClose = true, combinable = nil, description = 'Plant nutrition' },
 
 	encryptedtablet 			 = {name = 'encryptedtablet', 				label = 'Encrypted Tablet', 		weight = 2000, 		type = 'item', 		image = 'tablet.png', 				unique = false, 	useable = true, 	shouldClose = true,	   combinable = nil,   description = 'A secured tablet'},
+	hackingdevice 			    = {name = 'hackingdevice', 				label = 'Hacking Device', 		weight = 2000, 		type = 'item', 		image = 'tablet.png', 				unique = false, 	useable = true, 	shouldClose = true,	   combinable = nil,   description = 'A device that gets stuff done'},
+
+
 
     mdtcitation 				 = {name = 'mdtcitation', 			  	  	label = 'Citation', 			weight = 1000, 		type = 'item', 		image = 'citation.png', 			unique = true, 		useable = false, shouldClose = true,	   combinable = nil,   description = 'Citation from a police officer!'},
 

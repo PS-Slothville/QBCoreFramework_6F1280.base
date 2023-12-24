@@ -167,6 +167,18 @@ Config.PhoneApplications = {
         slot = 15,
         Alerts = 0,
     },
+    ["tuner"] = {
+        app = "tuner",
+        color = "white",
+        icon = "fas fa-circle",
+        style = "color:#c01d2e",
+        tooltipText = "Red Sun Tuner App",
+        tooltipPos = "bottom",
+        job = 'mechanic',
+        blockedjobs = {},
+        slot = 15,
+        Alerts = 0,
+    },
 }
 Config.MaxSlots = 20
 

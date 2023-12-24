@@ -473,6 +473,21 @@ RegisterKeyMapping('phone', 'Open Phone', 'keyboard', 'M')
 
 -- NUI Callbacks
 
+RegisterNUICallback('UpdateVehicle', function(data, cb)
+    local info, class, perfRating, model, brand = exports['cw-performance']:getVehicleInfo(GetPlayersLastVehicle())
+    local data = {
+        brand = brand,
+        rating = class..''..perfRating,
+        accel = math.floor(info.accel*10)/10,
+        speed =  math.floor(info.speed*10)/10,
+        handling =  math.floor(info.handling*10)/10,
+        braking =  math.floor(info.braking*10)/10,
+        drivetrain = info.drivetrain,
+        model = model
+    }
+    cb(data)
+end)
+
 RegisterNUICallback('CancelOutgoingCall', function(_, cb)
     CancelCall()
     cb('ok')

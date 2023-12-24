@@ -24,25 +24,49 @@ CreateThread(function()
 end)
 
 CreateThread(function()
+
+end)
+
+CreateThread(function()
     Wait(1000)
     setupRegister()
     setupSafes()
-    while true do
-        local ped = PlayerPedId()
-        local pos = GetEntityCoords(ped)
-        local inRange = false
-        for k in pairs(Config.Registers) do
-            local dist = #(pos - Config.Registers[k][1].xyz)
-            if dist <= 1 and Config.Registers[k].robbed then
-                inRange = true
-                DrawText3Ds(Config.Registers[k][1].xyz, Lang:t('text.the_cash_register_is_empty'))
-            end
-        end
-        if not inRange then
-            Wait(2000)
-        end
-        Wait(3)
+    for i = 1, #Config.Registers do
+        local coords = Config.Registers[i][1]
+        exports['qb-target']:AddCircleZone("store_zone_"..i, coords, 0.5, {
+            name = "store_zone_"..i,
+            debugPoly = true,
+            useZ = true,
+            }, {
+            options = {
+                {
+                    type = "client",
+                    event = "storerobbery:RobStore", 
+                    icon = 'fas fa-cash-register',
+                    label = 'Break Register',
+                }
+            },
+            distance = 1.5, -- This is the distance for you to be at for the target to turn blue, this is in GTA units and has to be a float value
+        })
     end
+
+
+    -- while true do
+    --     local ped = PlayerPedId()
+    --     local pos = GetEntityCoords(ped)
+    --     local inRange = false
+    --     for k in pairs(Config.Registers) do
+    --         local dist = #(pos - Config.Registers[k][1].xyz)
+    --         if dist <= 1 and Config.Registers[k].robbed then
+    --             inRange = true
+    --             DrawText3Ds(Config.Registers[k][1].xyz, Lang:t('text.the_cash_register_is_empty'))
+    --         end
+    --     end
+    --     if not inRange then
+    --         Wait(2000)
+    --     end
+    --     Wait(3)
+    -- end
 end)
 
 CreateThread(function()
@@ -127,50 +151,57 @@ RegisterNetEvent('police:SetCopCount', function(amount)
     CurrentCops = amount
 end)
 
-RegisterNetEvent('lockpicks:UseLockpick', function(isAdvanced)
-    usingAdvanced = isAdvanced
-    for k in pairs(Config.Registers) do
+RegisterNetEvent("storerobbery:RobStore", function()
+       for k in pairs(Config.Registers) do
         local ped = PlayerPedId()
         local pos = GetEntityCoords(ped)
         local dist = #(pos - Config.Registers[k][1].xyz)
         if dist <= 1 and not Config.Registers[k].robbed then
+            print(Config.Registers[k].robbed)
             if CurrentCops >= Config.MinimumStoreRobberyPolice then
-                if usingAdvanced then
-                    lockpick(true)
-                    currentRegister = k
-                    if not QBCore.Functions.IsWearingGloves() then
-                        TriggerServerEvent('evidence:server:CreateFingerDrop', pos)
-                    end
-                    if not copsCalled then
-                        local s1, s2 = GetStreetNameAtCoord(pos.x, pos.y, pos.z)
-                        local street1 = GetStreetNameFromHashKey(s1)
-                        local street2 = GetStreetNameFromHashKey(s2)
-                        local streetLabel = street1
-                        if street2 ~= nil then
-                            streetLabel = streetLabel .. ' ' .. street2
+                currentRegister = k
+                if not QBCore.Functions.IsWearingGloves() then
+                    TriggerServerEvent('evidence:server:CreateFingerDrop', pos)
+                end
+
+                local time = math.random(7,10)
+                local circles = math.random(10,20)
+                local success = exports['qb-lock']:StartLockPickCircle(circles, time, success)
+                print(success)
+                if success then
+                    TriggerServerEvent('qb-storerobbery:server:setRegisterStatus', currentRegister)
+                    local lockpickTime = 25000
+                    LockpickDoorAnim(lockpickTime)
+                    QBCore.Functions.Progressbar('search_register', Lang:t('text.emptying_the_register'), lockpickTime, false, true, {
+                        disableMovement = true,
+                        disableCarMovement = true,
+                        disableMouse = false,
+                        disableCombat = true,
+                    }, {
+                        animDict = 'veh@break_in@0h@p_m_one@',
+                        anim = 'low_force_entry_ds',
+                        flags = 16,
+                    }, {}, {}, function() -- Done
+                        openingDoor = false
+                        ClearPedTasks(PlayerPedId())
+                        TriggerServerEvent('qb-storerobbery:server:takeMoney', currentRegister, true)
+                    end, function() -- Cancel
+                        openingDoor = false
+                        ClearPedTasks(PlayerPedId())
+                        QBCore.Functions.Notify(Lang:t('error.process_canceled'), 'error')
+                        currentRegister = 0
+                    end)
+                    CreateThread(function()
+                        while openingDoor do
+                            TriggerServerEvent('hud:server:GainStress', math.random(1, 3))
+                            Wait(10000)
                         end
-                        exports['ps-dispatch']:StoreRobbery(Config.Registers[currentRegister].camId)
-                        -- TriggerServerEvent('qb-storerobbery:server:callCops', 'cashier', currentRegister, streetLabel, pos)
-                        copsCalled = true
-                    end
-                else
-                    lockpick(true)
-                    currentRegister = k
-                    if not QBCore.Functions.IsWearingGloves() then
-                        TriggerServerEvent('evidence:server:CreateFingerDrop', pos)
-                    end
-                    if not copsCalled then
-                        local s1, s2 = GetStreetNameAtCoord(pos.x, pos.y, pos.z)
-                        local street1 = GetStreetNameFromHashKey(s1)
-                        local street2 = GetStreetNameFromHashKey(s2)
-                        local streetLabel = street1
-                        if street2 ~= nil then
-                            streetLabel = streetLabel .. ' ' .. street2
-                        end
-                        exports['ps-dispatch']:StoreRobbery(Config.Registers[currentRegister].camId)
-                        -- TriggerServerEvent('qb-storerobbery:server:callCops', 'cashier', currentRegister, streetLabel, pos)
-                        copsCalled = true
-                    end
+                    end)
+                end
+                if not copsCalled then
+                    -- lockpick(true)
+                    exports['ps-dispatch']:StoreRobbery(Config.Registers[currentRegister].camId)
+                    copsCalled = true
                 end
             else
                 QBCore.Functions.Notify(Lang:t('error.minimum_store_robbery_police', { MinimumStoreRobberyPolice = Config.MinimumStoreRobberyPolice }), 'error')
@@ -178,6 +209,58 @@ RegisterNetEvent('lockpicks:UseLockpick', function(isAdvanced)
         end
     end
 end)
+
+-- RegisterNetEvent('lockpicks:UseLockpick', function(isAdvanced)
+--     usingAdvanced = isAdvanced
+--     for k in pairs(Config.Registers) do
+--         local ped = PlayerPedId()
+--         local pos = GetEntityCoords(ped)
+--         local dist = #(pos - Config.Registers[k][1].xyz)
+--         if dist <= 1 and not Config.Registers[k].robbed then
+--             if CurrentCops >= Config.MinimumStoreRobberyPolice then
+--                 if usingAdvanced then
+--                     lockpick(true)
+--                     currentRegister = k
+--                     if not QBCore.Functions.IsWearingGloves() then
+--                         TriggerServerEvent('evidence:server:CreateFingerDrop', pos)
+--                     end
+--                     if not copsCalled then
+--                         local s1, s2 = GetStreetNameAtCoord(pos.x, pos.y, pos.z)
+--                         local street1 = GetStreetNameFromHashKey(s1)
+--                         local street2 = GetStreetNameFromHashKey(s2)
+--                         local streetLabel = street1
+--                         if street2 ~= nil then
+--                             streetLabel = streetLabel .. ' ' .. street2
+--                         end
+--                         exports['ps-dispatch']:StoreRobbery(Config.Registers[currentRegister].camId)
+--                         -- TriggerServerEvent('qb-storerobbery:server:callCops', 'cashier', currentRegister, streetLabel, pos)
+--                         copsCalled = true
+--                     end
+--                 else
+--                     lockpick(true)
+--                     currentRegister = k
+--                     if not QBCore.Functions.IsWearingGloves() then
+--                         TriggerServerEvent('evidence:server:CreateFingerDrop', pos)
+--                     end
+--                     if not copsCalled then
+--                         local s1, s2 = GetStreetNameAtCoord(pos.x, pos.y, pos.z)
+--                         local street1 = GetStreetNameFromHashKey(s1)
+--                         local street2 = GetStreetNameFromHashKey(s2)
+--                         local streetLabel = street1
+--                         if street2 ~= nil then
+--                             streetLabel = streetLabel .. ' ' .. street2
+--                         end
+--                         exports['ps-dispatch']:StoreRobbery(Config.Registers[currentRegister].camId)
+--                         -- TriggerServerEvent('qb-storerobbery:server:callCops', 'cashier', currentRegister, streetLabel, pos)
+--                         copsCalled = true
+--                     end
+--                 end
+--             else
+--                 QBCore.Functions.Notify(Lang:t('error.minimum_store_robbery_police', { MinimumStoreRobberyPolice = Config.MinimumStoreRobberyPolice }), 'error')
+--             end
+--         end
+--     end
+-- end)
 
 function setupRegister()
     QBCore.Functions.TriggerCallback('qb-storerobbery:server:getRegisterStatus', function(Registers)

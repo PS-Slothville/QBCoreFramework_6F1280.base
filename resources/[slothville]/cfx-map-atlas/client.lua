@@ -24,22 +24,6 @@ end)
 --     end
 -- end)
 
-CreateThread(function()
-    RequestStreamedTextureDict('dock_yacht_backgrounds', true)
-    while not HasStreamedTextureDictLoaded("dock_yacht_backgrounds") do
-        Wait(100)
-    end
-    while true do
-        if IsPauseMenuActive() then
-            SetScriptGfxDrawBehindPausemenu(true)
-            DrawSprite("dock_yacht_backgrounds", "yacht_bg_lighting", 0.5, 0.5, 10.0, 10.0, 0, 0, 255, 179, 100)
-        else
-            SetStreamedTextureDictAsNoLongerNeeded('dock_yacht_backgrounds')
-        end
-      Wait(0)
-    end
-end)
-
 if EnableCayoMiniMap then
     CreateThread(function()
         while true do
